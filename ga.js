@@ -1,6 +1,6 @@
 //GOOGLE ANALYTICS
 
-var _AnalyticsCode = 'UA-43230569-3';
+var _AnalyticsCode = 'UA-XXXXX-Y';
 
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', _AnalyticsCode]);
