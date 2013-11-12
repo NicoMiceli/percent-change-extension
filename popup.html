@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <style>
+        body {
+            width: 305px;
+            color: black;
+            font-family: Arial;
+            background-color: white;
+            text-align: center;
+        }
+        #output {
+            color: #d00;
+            text-align: center;
+        }
+        input {
+            text-align: center;
+        }
+        #subtext {
+            font-size: 80%;
+        }
+        #footer {
+            font-size: 60%;
+        }
+    </style>
+    <script src="jquery-1.10.2.js"></script>
+    <script src="ga.js"></script>
+</head>
+
+<body>
+    <h2>% Change Calculator</h2>
+    <div id="subtext">
+        <p>No bells. No whistles.
+            <BR>Just a simple way to calculate percent changes.
+    </div>
+    Old Number:
+    <input placeholder="old" type="text" id="old1a" size="3" align="left">New Number:
+    <input placeholder="new" type="text" id="new1b" size="3">
+    <BR>
+    <span id="message">&Delta;%</span>
+    <BR>
+    <input type="button" id="calculate" value="Calculate">
+    <br>
+    <br>
+
+    <input placeholder="percent" type="text" id="percent2a" size="4">% of
+    <input placeholder="number" type="text" id="num2b" size="4">is <span id="message2">what?</span>
+    <div id="subtext">
+        <em>example: <strong>10%</strong> of <strong>100</strong> of 10</em>
+    </div>
+    <input type="button" id="calculate2" value="Calculate">
+    <br>
+    <br>
+    <input placeholder="number" type="text" id="num3a" size="6">is
+    <input placeholder="percent" type="text" id="percent3b" size="5">% of <span id="message3">what number?</span>
+    <div id="subtext">
+        <em>example: <strong>10</strong> is <strong>10%</strong> of 100</em>
+    </div>
+    <input type="button" id="calculate3" value="Calculate">
+    <script src="percentchange.js"></script>
+    <br>
+    <hr>
+    <div id="footer">
+        More info about this can be found
+        <A HREF="http://nicomiceli.com/percent-change-calculator" target="_blank" id="blog">here</A>
+        <BR> Send me feedback on twitter <a href="http://www.twitter.com/nicomiceli" target="_blank" id="twitter">@nicomiceli</a>
+
+    </div>
+</body>
+
+</html>
