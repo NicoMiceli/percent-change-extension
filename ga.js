@@ -1,5 +1,6 @@
 //GOOGLE ANALYTICS
 
+//ADD YOUR OWN GOOGLE ANALYTICS USER ID CODE BELOW
 var _AnalyticsCode = 'UA-XXXXX-Y';
 
 var _gaq = _gaq || [];
