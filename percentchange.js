@@ -17,14 +17,20 @@ var id = function (id) {
     return document.getElementById(id);
 };
 
+var cleanNumber = function(inputid){
+    var rawValue = id(inputid).value
+    var cleanValue = rawValue.replace(/[^\d\.\-\ ]/g, '');
+    return cleanValue
+}
+
 var myChange = [];
 
 function processInfo() {
-    var y1 = parseFloat(id('old1a').value);
-    var y2 = parseFloat(id('new1b').value);
-    var sum = y2 - y1;
-    var divide = sum / y1 * 100;
-    var round = Math.round(divide * 100) / 100
+    var y1 = cleanNumber('old1a');
+    var y2 = cleanNumber('new1b');
+    //var sum = (y2 - y1)/y1 * 100;
+    //var divide = sum / y1 * 100;
+    var round = Math.round(((y2 - y1)/y1 * 100) * 100) / 100
     var myTotal = round + "%";
     var myAnswer = id('message');
     myAnswer.innerHTML = myTotal;
@@ -45,10 +51,10 @@ function processInfo() {
 };
 
 function processInfo2() {
-    var y1 = parseFloat(id('percent2a').value);
-    var y2 = parseFloat(id('num2b').value);
-    var percentage = (y1/100) * y2;
-    var myTotal = Math.round(percentage * 100) / 100
+    var y1 = cleanNumber('percent2a');
+    var y2 = cleanNumber('num2b');
+    //var percentage = (y1/100) * y2;
+    var myTotal = Math.round(((y1/100) * y2) * 100) / 100
     var myAnswer = id('message2');
     myAnswer.innerHTML = myTotal;
     //myChange.push(myTotal);
@@ -60,10 +66,10 @@ function processInfo2() {
 //})();
 
 function processInfo3() {
-    var y1 = parseFloat(id('num3a').value);
-    var y2 = parseFloat(id('percent3b').value);
-    var percentage = y1/(y2/100);
-    var myTotal = Math.round(percentage * 100) / 100
+    var y1 = cleanNumber('num3a');
+    var y2 = cleanNumber('percent3b');
+    //var percentage = y1/(y2/100);
+    var myTotal = Math.round((y1/(y2/100)) * 100) / 100
     var myAnswer = id('message3');
     myAnswer.innerHTML = myTotal;
     //myChange.push(myTotal);
