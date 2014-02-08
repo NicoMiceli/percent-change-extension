@@ -10,7 +10,9 @@ I built this extension to help me and my team with quick calculations during rep
 For example, below are calculations it accepts: 
 
 The percent change from 10 to 15 is 50%
+
 10% of 100 of 10
+
 10 is 10% of 100
 
 Feedback is always appreciated! You can reach out to me on twitter @nicomiceli or Gplus Google.com/+NicoMiceli
