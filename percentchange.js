@@ -1,4 +1,8 @@
-//PERCENT CHANGE CODE
+/*!
+ * percentchange.js | v0.4
+ * Copyright (c) 2014 Nico Miceli (@nicomiceli)
+ * Licensed under the MIT and GPL licenses.
+ */
 
 
 $("#calculate").click(function () {
