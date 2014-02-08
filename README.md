@@ -1,4 +1,4 @@
-percent change extension
+Percent Change Calculator Extension
 ========================
 
 **Quick and simple way to calculate percent changes.**
