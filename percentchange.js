@@ -4,7 +4,6 @@
  * Licensed under the MIT and GPL licenses.
  */
 
-
 $("#calculate").click(function () {
     processInfo();
 })
@@ -24,28 +23,46 @@ var cleanNumber = function(inputid){
     var cleanValue = rawValue.replace(/[^\d\.\-\ ]/g, '');
     return cleanValue
 }
+var myTotal, 
+    y1, 
+    y2,
+    myAnswer;
+
+function showAnswer (messageID) {
+    myAnswer = id(messageID);
+    var str = myTotal.toString()
+    var result = str.bold()
+    myAnswer.innerHTML = result;
+}
 
 function processInfo() {
-    var y1 = cleanNumber('old1a');
-    var y2 = cleanNumber('new1b');
+    y1 = cleanNumber('old1a');
+    y2 = cleanNumber('new1b');
     var round = Math.round(((y2 - y1)/y1 * 100) * 100) / 100
-    var myTotal = round + "%";
-    var myAnswer = id('message');
-    myAnswer.innerHTML = myTotal;
+    myTotal = round + "%";
+    myAnswer = id('message');
+    var result = myTotal.bold();
+    myAnswer.innerHTML = result;
+    if (round > 0) {
+        myAnswer.style.color="green"
+    } else if (round < 0) {
+        myAnswer.style.color="red"
+    } else {
+        myAnswer.style.color="black"
+    }
 };
 
 function processInfo2() {
-    var y1 = cleanNumber('percent2a');
-    var y2 = cleanNumber('num2b');
-    var myTotal = Math.round(((y1/100) * y2) * 100) / 100
-    var myAnswer = id('message2');
-    myAnswer.innerHTML = myTotal;
+    y1 = cleanNumber('percent2a');
+    y2 = cleanNumber('num2b');
+    myTotal = Math.round(((y1/100) * y2) * 100) / 100
+    showAnswer('message2');
 };
 
 function processInfo3() {
-    var y1 = cleanNumber('num3a');
-    var y2 = cleanNumber('percent3b');
-    var myTotal = Math.round((y1/(y2/100)) * 100) / 100
-    var myAnswer = id('message3');
-    myAnswer.innerHTML = myTotal;
+    y1 = cleanNumber('num3a');
+    y2 = cleanNumber('percent3b');
+    myTotal = Math.round((y1/(y2/100)) * 100) / 100
+    showAnswer('message3')
+
 };
