@@ -9,11 +9,11 @@ var myTotal,
     y2,
     myAnswer;
 
-var id = function (id) {
+function id (id) {
     return document.getElementById(id);
 };
 
-var cleanNumber = function(inputid){
+function cleanNumber (inputid){
     var rawValue = id(inputid).value
     var cleanValue = rawValue.replace(/[^\d\.\-\ ]/g, '');
     return cleanValue
@@ -26,9 +26,33 @@ function showAnswer (messageID) {
     myAnswer.innerHTML = result;
 }
 
+function saveNums (id1, id2) {
+    var theValue1 = id(id1).value
+    var theValue2 = id(id2).value
+    
+    if (!theValue1) {
+        message('Error');
+        return;
+    };
+    chrome.storage.sync.set({'value1':theValue1},function(){
+        message('Settings saved')
+        console.log('saved')
+    })
+
+    if (!theValue2) {
+        message('Error');
+        return;
+    };
+    chrome.storage.sync.set({'value2':theValue2},function(){
+        message('Settings saved')
+    })
+}
+
+
 function processInfo() {
     y1 = cleanNumber('old1a');
     y2 = cleanNumber('new1b');
+
     var round = Math.round(((y2 - y1)/y1 * 100) * 100) / 100
     myTotal = round + "%";
     myAnswer = id('message');
@@ -58,9 +82,31 @@ function processInfo3() {
 
 };
 
+$(".inputbox").blur(function() {
+    var $inputbox = $(this);
+    var key = $inputbox.attr('id');
+    var storedVal = id(key).value;
+    localStorage.setItem(key,storedVal)
+    //console.log(key + " " + storedVal); 
+});
+
+
+jQuery(document).ready(function($) {
+
+    id('old1a').value = localStorage.getItem('old1a')
+    id('new1b').value = localStorage.getItem('new1b')
+    id('percent2a').value = localStorage.getItem('percent2a')
+    id('num2b').value = localStorage.getItem('num2b')
+    id('num3a').value = localStorage.getItem('num3a')
+    id('percent3b').value = localStorage.getItem('percent3b')
+    //$('input.inputbox').each(function(i) {
+       //console.log(this.value)
+    //});
+});
 
 $("#calculate").click(function () {
     processInfo();
+    saveNums('old1a','new1b');
 })
 $("#calculate2").click(function () {
     processInfo2();
