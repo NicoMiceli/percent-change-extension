@@ -4,15 +4,10 @@
  * Licensed under the MIT and GPL licenses.
  */
 
-$("#calculate").click(function () {
-    processInfo();
-})
-$("#calculate2").click(function () {
-    processInfo2();
-})
-$("#calculate3").click(function () {
-    processInfo3();
-})
+var myTotal, 
+    y1, 
+    y2,
+    myAnswer;
 
 var id = function (id) {
     return document.getElementById(id);
@@ -23,10 +18,6 @@ var cleanNumber = function(inputid){
     var cleanValue = rawValue.replace(/[^\d\.\-\ ]/g, '');
     return cleanValue
 }
-var myTotal, 
-    y1, 
-    y2,
-    myAnswer;
 
 function showAnswer (messageID) {
     myAnswer = id(messageID);
@@ -66,3 +57,14 @@ function processInfo3() {
     showAnswer('message3')
 
 };
+
+
+$("#calculate").click(function () {
+    processInfo();
+})
+$("#calculate2").click(function () {
+    processInfo2();
+})
+$("#calculate3").click(function () {
+    processInfo3();
+})
